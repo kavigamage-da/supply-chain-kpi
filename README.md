@@ -141,4 +141,4 @@ Sysco LABS builds the data infrastructure for a company that ships millions of f
 
 ---
 
-*Part of the Top 1% Portfolio — 5 projects built for Sri Lanka's top tech companies.*
+ 
