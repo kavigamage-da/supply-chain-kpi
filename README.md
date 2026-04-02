@@ -17,15 +17,15 @@ Delayed shipments weren't being caught early. Nobody knew which warehouse was un
 
 ---
 
-## What the Real Data Shows
+## What the Data Shows — and What to Do About It
 
-These are the actual findings from running 12 months of order data (5,000 orders, 5 warehouses, 6 product categories) through the pipeline.
+These are the actual findings from running 12 months of order data (5,000 orders, 5 warehouses, 6 product categories) through the pipeline — with the business action each finding points to.
+
+---
 
 ### Finding 1 — Galle-South is the network's weakest link
 
 Across all 5 warehouses, Galle-South has the lowest on-time delivery rate at **68.92%** and the highest average delay at **0.494 days** — 13% worse than Kurunegala-West which leads the network at 71.07%. Galle-South also has the most cancellations: **60 orders cancelled** in 12 months, compared to just 38 at Colombo-Central.
-
-That's not a rounding error. That's a warehouse that needs an operations review.
 
 | Warehouse | On-Time Rate | Avg Delay | Cancellations |
 |-----------|-------------|-----------|---------------|
@@ -35,13 +35,15 @@ That's not a rounding error. That's a warehouse that needs an operations review.
 | Kandy-Hub | 69.87% | 0.451d | 51 |
 | Galle-South | 68.92% ❌ | 0.494d ❌ | 60 ❌ |
 
-### Finding 2 — Meat & Seafood is where the real revenue risk lives
+**What this means for the business:** Galle-South isn't just underperforming on one metric — it's the worst on all three: on-time rate, delay, and cancellations. That combination points to a systemic operations problem, not a one-off incident. Before management spends time trying to improve the network average, the highest-return action is a targeted audit of Galle-South alone. Fix one warehouse, move the whole network number.
 
-Meat & Seafood is the highest-revenue category at **LKR 11.4M** — nearly double Frozen's LKR 7M and almost 6x Dry Goods. But it also has perishability risk that doesn't show up in cost per order alone.
+---
 
-Every Meat & Seafood order averages **LKR 14,028** — that's 2.4x the network average of LKR 5,887. A delayed or cancelled Meat & Seafood order isn't just a logistics failure. At that order value, it's a spoilage event, a customer loss, and a margin hit all at once.
+### Finding 2 — Two hidden risks in the product mix
 
-Meanwhile, Dairy has the worst on-time rate of any category at **68.49%** — below the 70.14% network average. Dairy is time-sensitive and high-volume (860 orders). That combination is a hidden risk the current manual reporting never surfaced.
+**Risk A — Meat & Seafood:** The highest-revenue category at **LKR 11.4M** — nearly double Frozen's LKR 7M and almost 6x Dry Goods. Every order averages **LKR 14,028**, which is 2.4x the network average of LKR 5,887. A delayed Meat & Seafood order isn't just a logistics failure — at that order value, it's a spoilage event, a customer loss, and a margin hit simultaneously.
+
+**Risk B — Dairy:** The worst on-time rate of any category at **68.49%**, below the 70.14% network average, across 860 orders — the second highest volume category. Dairy is time-sensitive and perishable. High volume plus poor on-time performance is a silent, compounding risk that manual reporting never surfaced because nobody was looking at category-level trends consistently.
 
 | Category | On-Time Rate | Avg Cost/Order | Total Revenue |
 |----------|-------------|----------------|---------------|
@@ -52,18 +54,22 @@ Meanwhile, Dairy has the worst on-time rate of any category at **68.49%** — be
 | Produce | 70.04% | LKR 2,777 | LKR 2.3M |
 | Dry Goods | 69.27% | LKR 2,256 | LKR 2.0M |
 
-### Finding 3 — The network starts the year weak, peaks mid-year, then loses discipline in December
+**What this means for the business:** These two categories need different solutions. Meat & Seafood needs priority routing and tighter SLA monitoring given its order value — one cancelled shipment costs more than 6 Dry Goods orders. Dairy needs a turnaround time investigation: why is the highest-volume perishable category consistently missing delivery targets? These are questions that only appear when you have automated, consistent category-level reporting.
 
-The monthly trend tells a story that no weekly status update would ever reveal. On-time rates start low in January at **66.67%**, climb steadily to a peak of **72.13% in July**, then become unstable — dropping to 68.61% in August, recovering, then falling again to **68.89% in December**.
+---
 
-The January and December dips suggest seasonal pressure: high order volumes during festive periods straining warehouse capacity. The August dip is harder to explain — it may reflect staffing patterns or supplier delays in Q3. Either way, this is the kind of pattern that only becomes visible when you have consistent, automated reporting across 12 months. A manual monthly report would never surface it.
+### Finding 3 — The network has a seasonal rhythm nobody was managing
+
+The monthly trend reveals a pattern invisible without 12 months of consistent automated data. On-time rates start low in January at **66.67%**, climb steadily to a peak of **72.13% in July**, then become unstable — dropping to 68.61% in August before recovering, then falling again to **68.89% in December**.
 
 | Period | On-Time Rate | Signal |
 |--------|-------------|--------|
 | Jan 2024 | 66.67% | ⚠️ Year starts weak |
 | Jul 2024 | 72.13% | ✅ Peak performance |
-| Aug 2024 | 68.61% | ⚠️ Unexplained dip |
+| Aug 2024 | 68.61% | ⚠️ Unexplained mid-year dip |
 | Dec 2024 | 68.89% | ⚠️ Year ends weak |
+
+**What this means for the business:** The January and December dips are likely seasonal — high festive order volumes straining warehouse capacity at year boundaries. The recommendation is to pre-position inventory and plan temporary staffing increases before January and December, not after the dip has already happened. The August dip is harder to explain and warrants investigation — it could be Q3 supplier delays or staffing patterns. Either way, this pattern only becomes visible when you have consistent automated reporting across the full year. A manual monthly report produced whenever someone has time would never surface it — and management would keep making the same capacity planning mistake every January.
 
 ---
 
@@ -159,4 +165,4 @@ Sysco LABS builds the data infrastructure for a company that ships millions of f
 
 ---
 
- 
+*Part of the Top 1% Portfolio — 5 projects built for Sri Lanka's top tech companies.*
