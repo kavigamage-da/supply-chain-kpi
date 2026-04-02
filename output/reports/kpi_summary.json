@@ -1,0 +1,231 @@
+{
+  "overall": {
+    "total_orders": 5000,
+    "delivered_orders": 3507,
+    "on_time_orders": 3507,
+    "delayed_orders": 759,
+    "cancelled_orders": 256,
+    "on_time_rate_pct": 70.14,
+    "cancellation_rate_pct": 5.12,
+    "avg_delay_days": 0.451,
+    "avg_cost_per_order": 5887.31,
+    "total_revenue_lkr": 29436541.04
+  },
+  "warehouse": [
+    {
+      "warehouse": "Kurunegala-West",
+      "total_orders": 947,
+      "on_time_rate_pct": 71.07,
+      "avg_delay_days": 0.438,
+      "avg_cost_per_order": 5692.53,
+      "cancelled_orders": 53
+    },
+    {
+      "warehouse": "Colombo-Central",
+      "total_orders": 992,
+      "on_time_rate_pct": 70.77,
+      "avg_delay_days": 0.441,
+      "avg_cost_per_order": 6221.78,
+      "cancelled_orders": 38
+    },
+    {
+      "warehouse": "Jaffna-North",
+      "total_orders": 993,
+      "on_time_rate_pct": 70.19,
+      "avg_delay_days": 0.43,
+      "avg_cost_per_order": 5611.24,
+      "cancelled_orders": 54
+    },
+    {
+      "warehouse": "Kandy-Hub",
+      "total_orders": 1019,
+      "on_time_rate_pct": 69.87,
+      "avg_delay_days": 0.451,
+      "avg_cost_per_order": 6102.22,
+      "cancelled_orders": 51
+    },
+    {
+      "warehouse": "Galle-South",
+      "total_orders": 1049,
+      "on_time_rate_pct": 68.92,
+      "avg_delay_days": 0.494,
+      "avg_cost_per_order": 5799.42,
+      "cancelled_orders": 60
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2024-01",
+      "total_orders": 396,
+      "on_time_orders": 264,
+      "avg_cost": 5862.11,
+      "avg_delay": 0.523,
+      "on_time_rate_pct": 66.67
+    },
+    {
+      "month": "2024-02",
+      "total_orders": 439,
+      "on_time_orders": 300,
+      "avg_cost": 5835.36,
+      "avg_delay": 0.551,
+      "on_time_rate_pct": 68.34
+    },
+    {
+      "month": "2024-03",
+      "total_orders": 426,
+      "on_time_orders": 299,
+      "avg_cost": 5916.53,
+      "avg_delay": 0.444,
+      "on_time_rate_pct": 70.19
+    },
+    {
+      "month": "2024-04",
+      "total_orders": 422,
+      "on_time_orders": 298,
+      "avg_cost": 5962.04,
+      "avg_delay": 0.468,
+      "on_time_rate_pct": 70.62
+    },
+    {
+      "month": "2024-05",
+      "total_orders": 413,
+      "on_time_orders": 295,
+      "avg_cost": 5973.35,
+      "avg_delay": 0.391,
+      "on_time_rate_pct": 71.43
+    },
+    {
+      "month": "2024-06",
+      "total_orders": 428,
+      "on_time_orders": 308,
+      "avg_cost": 5901.31,
+      "avg_delay": 0.403,
+      "on_time_rate_pct": 71.96
+    },
+    {
+      "month": "2024-07",
+      "total_orders": 427,
+      "on_time_orders": 308,
+      "avg_cost": 5701.27,
+      "avg_delay": 0.441,
+      "on_time_rate_pct": 72.13
+    },
+    {
+      "month": "2024-08",
+      "total_orders": 395,
+      "on_time_orders": 271,
+      "avg_cost": 6252.87,
+      "avg_delay": 0.476,
+      "on_time_rate_pct": 68.61
+    },
+    {
+      "month": "2024-09",
+      "total_orders": 393,
+      "on_time_orders": 282,
+      "avg_cost": 5929.78,
+      "avg_delay": 0.478,
+      "on_time_rate_pct": 71.76
+    },
+    {
+      "month": "2024-10",
+      "total_orders": 429,
+      "on_time_orders": 299,
+      "avg_cost": 5872.09,
+      "avg_delay": 0.433,
+      "on_time_rate_pct": 69.7
+    },
+    {
+      "month": "2024-11",
+      "total_orders": 382,
+      "on_time_orders": 273,
+      "avg_cost": 5449.15,
+      "avg_delay": 0.401,
+      "on_time_rate_pct": 71.47
+    },
+    {
+      "month": "2024-12",
+      "total_orders": 450,
+      "on_time_orders": 310,
+      "avg_cost": 5975.14,
+      "avg_delay": 0.405,
+      "on_time_rate_pct": 68.89
+    }
+  ],
+  "category": [
+    {
+      "category": "Meat & Seafood",
+      "total_orders": 817,
+      "on_time_rate_pct": 71.48,
+      "avg_cost_per_order": 14027.72,
+      "total_revenue_lkr": 11460648.37
+    },
+    {
+      "category": "Frozen",
+      "total_orders": 834,
+      "on_time_rate_pct": 71.58,
+      "avg_cost_per_order": 8459.35,
+      "total_revenue_lkr": 7055101.61
+    },
+    {
+      "category": "Dairy",
+      "total_orders": 860,
+      "on_time_rate_pct": 68.49,
+      "avg_cost_per_order": 4295.41,
+      "total_revenue_lkr": 3694053.44
+    },
+    {
+      "category": "Beverages",
+      "total_orders": 796,
+      "on_time_rate_pct": 70.1,
+      "avg_cost_per_order": 3749.42,
+      "total_revenue_lkr": 2984538.2
+    },
+    {
+      "category": "Produce",
+      "total_orders": 811,
+      "on_time_rate_pct": 70.04,
+      "avg_cost_per_order": 2777.37,
+      "total_revenue_lkr": 2252444.47
+    },
+    {
+      "category": "Dry Goods",
+      "total_orders": 882,
+      "on_time_rate_pct": 69.27,
+      "avg_cost_per_order": 2255.96,
+      "total_revenue_lkr": 1989754.95
+    }
+  ],
+  "regional": [
+    {
+      "region": "North-Western",
+      "total_orders": 947,
+      "on_time_rate_pct": 71.07,
+      "avg_cost_per_order": 5692.53
+    },
+    {
+      "region": "Western",
+      "total_orders": 992,
+      "on_time_rate_pct": 70.77,
+      "avg_cost_per_order": 6221.78
+    },
+    {
+      "region": "Northern",
+      "total_orders": 993,
+      "on_time_rate_pct": 70.19,
+      "avg_cost_per_order": 5611.24
+    },
+    {
+      "region": "Central",
+      "total_orders": 1019,
+      "on_time_rate_pct": 69.87,
+      "avg_cost_per_order": 6102.22
+    },
+    {
+      "region": "Southern",
+      "total_orders": 1049,
+      "on_time_rate_pct": 68.92,
+      "avg_cost_per_order": 5799.42
+    }
+  ],
+  "generated_at": "2026-04-02T16:05:01.723691Z"
+}

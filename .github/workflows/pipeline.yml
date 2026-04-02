@@ -1,0 +1,84 @@
+name: Supply Chain KPI Pipeline
+
+on:
+  # Run every day at 06:00 UTC (11:30 AM Sri Lanka time)
+  schedule:
+    - cron: "0 6 * * *"
+
+  # Allow manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+
+  # Also run on every push to main (useful during development)
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "data/**"
+      - ".github/workflows/**"
+
+jobs:
+  run-pipeline:
+    name: Run KPI Pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Set up Python ─────────────────────────────────────────────────
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # ── 3. Install dependencies ──────────────────────────────────────────
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # ── 4. Generate sample data ──────────────────────────────────────────
+      - name: Generate supply chain dataset
+        run: python scripts/generate_data.py
+
+      # ── 5. Run ETL + KPI pipeline ────────────────────────────────────────
+      - name: Run KPI pipeline
+        env:
+          USE_S3:                ${{ secrets.USE_S3 }}
+          AWS_ACCESS_KEY_ID:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION:            ${{ secrets.AWS_REGION }}
+          S3_BUCKET_NAME:        ${{ secrets.S3_BUCKET_NAME }}
+        run: python scripts/pipeline.py
+
+      # ── 6. Send email report (optional) ─────────────────────────────────
+      - name: Send KPI email report
+        if: ${{ secrets.EMAIL_USER != '' }}
+        env:
+          EMAIL_BACKEND:   ${{ secrets.EMAIL_BACKEND }}
+          EMAIL_USER:      ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD:  ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_TO:        ${{ secrets.EMAIL_TO }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+        run: python scripts/email_report.py
+
+      # ── 7. Upload charts as GitHub Actions artefacts ─────────────────────
+      - name: Upload dashboard artefacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kpi-dashboard-${{ github.run_number }}
+          path: |
+            output/charts/*.png
+            output/reports/kpi_summary.json
+          retention-days: 30
+
+      # ── 8. Commit updated data back to repo (optional) ───────────────────
+      - name: Commit KPI report to repo
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/reports/kpi_summary.json output/charts/*.png || true
+          git diff --cached --quiet || git commit -m "ci: update KPI report [skip ci]"
+          git push || true
